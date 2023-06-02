@@ -1,1 +1,0 @@
-const { default: Vue } = require('vue');

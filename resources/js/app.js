@@ -1,38 +1,48 @@
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
 require('./bootstrap');
 
-window.Vue = require('vue');
-import  Vue from 'vue'
-import  VueRouter from 'vue-router';
-import VueSweetalert2 from 'vue-sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
+window.Vue = require('vue').default;
+import App from './components/App.vue';
+import VueRouter from 'vue-router';
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+import {routes} from './routes';
+
+
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
 Vue.use(VueRouter);
-
-
-Vue.config.productionTip = false
-Vue.use(VueSweetalert2);
-
-import vuetify from './plugin/vuetify';
-Vue.use(vuetify)
-
-require('./global-components');
-
-import routes from './routes'
-axios.defaults.baseURL = '/api/'
-
-
-Vue.component('admin-layout', require('./Main.vue').default);
-
-Vue.component('TeacherNavigation', require('./Pages/Navigation/TeacherNavigation.vue').default);
-Vue.component('SuperadminNavigation', require('./Pages/Navigation/SuperadminNavigation.vue').default);
-Vue.component('FinanceNavigation', require('./Pages/Navigation/FinanceNavigation.vue').default);
-Vue.component('StaffNavigation', require('./Pages/Navigation/StaffNavigation.vue').default);
-Vue.component('ParentNavigation', require('./Pages/Navigation/ParentNavigation.vue').default);
-Vue.component('StudentNavigation', require('./Pages/Navigation/StudentNavigation.vue').default);
-Vue.component('GuardNavigation', require('./Pages/Navigation/GuardNavigation.vue').default);
-Vue.component('SchooladminNavigation', require('./Pages/Navigation/SchooladminNavigation.vue').default);
+Vue.use(VueAxios, axios);
+ 
+const router = new VueRouter({
+    mode: 'history',
+    routes: routes
+});
 
 const app = new Vue({
     el: '#app',
-    router: new VueRouter(routes),
-    vuetify
+    router: router,
+    render: h => h(App),
 });

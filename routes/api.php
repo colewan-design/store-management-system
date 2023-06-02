@@ -2,24 +2,24 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CategoryController;
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
 
-//Exports
-use App\Exports\StudentsExport;
-use Maatwebsite\Excel\Facades\Excel;
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-// Public API routes
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [UserController::class, 'login']);
-
-//Accounts
-Route::get('/accounts', [AccountsController::class, 'index']);
-Route::post('/accounts/create', [AccountsController::class, 'store']);
-Route::put('/accounts/update/{id}', [AccountsController::class, 'update']);
-Route::delete('/accounts/delete/{id}', [AccountsController::class, 'destroy']);
-
-
-?>
+Route::get('/category', [CategoryController::class, 'index']);
+Route::post('/category/create', [CategoryController::class, 'store']);
+Route::put('/category/update/{id}', [CategoryController::class, 'update']);
+Route::delete('/category/delete/{id}', [CategoryController::class, 'destroy']);
