@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{asset('dist/img/AdminLTELogo.png')}}" rel="shortcut icon" type="image/x-icon" />
-        <title>Laravel</title>
+        <link href="{{asset('dist/img/StoreLogo.png')}}" rel="shortcut icon" type="image/x-icon" />
+        <title>Sari-Sari</title>
         <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">

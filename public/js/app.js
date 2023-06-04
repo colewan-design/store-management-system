@@ -2122,7 +2122,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "wrapper"
   }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("aside", {
-    staticClass: "main-sidebar sidebar-dark-primary elevation-4"
+    staticClass: "main-sidebar sidebar-light-primary elevation-4"
   }, [_c("router-link", {
     staticClass: "brand-link",
     attrs: {
@@ -2134,12 +2134,12 @@ var render = function render() {
       opacity: ".8"
     },
     attrs: {
-      src: "dist/img/AdminLTELogo.png",
-      alt: "AdminLTE Logo"
+      src: "dist/img/StoreLogo.png",
+      alt: "Store Logo"
     }
   }), _vm._v(" "), _c("span", {
     staticClass: "brand-text font-weight-light"
-  }, [_vm._v("Store Management")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Sari-Sari Store")])]), _vm._v(" "), _c("div", {
     staticClass: "sidebar"
   }, [_vm._m(2), _vm._v(" "), _c("nav", {
     staticClass: "mt-2"
@@ -2160,25 +2160,25 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "nav-icon fas fa-tachometer-alt"
-  }), _vm._v("\n                Dashboard\n            ")])], 1), _vm._v(" "), _c("li", {
+  }), _vm._v("\n            Dashboard\n          ")])], 1), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/listview"
+      to: "/productdetailsview"
     }
   }, [_c("i", {
-    staticClass: "nav-icon fas fa-list-alt"
-  }), _vm._v("\n                Category\n            ")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-icon fas fa-info-circle"
+  }), _vm._v("\n            Product Details\n          ")])], 1), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/"
+      to: "/producttableview"
     }
   }, [_c("i", {
-    staticClass: "nav-icon fas fa-list-alt"
-  }), _vm._v("\n                Product\n            ")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-icon fas fa-table"
+  }), _vm._v("\n            Product Management\n          ")])], 1), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
@@ -2186,17 +2186,26 @@ var render = function render() {
       to: "/purchaseview"
     }
   }, [_c("i", {
-    staticClass: "nav-icon fas fa-list-alt"
-  }), _vm._v("\n                Purchase\n            ")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-icon fas fa-shopping-cart"
+  }), _vm._v("\n            Purchase\n          ")])], 1), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
-      to: "/"
+      to: "/salesview"
     }
   }, [_c("i", {
-    staticClass: "nav-icon fas fa-list-alt"
-  }), _vm._v("\n                Sales\n            ")])], 1)])])])], 1), _vm._v(" "), _c("div", {
+    staticClass: "nav-icon fas fa-chart-line"
+  }), _vm._v("\n            Sales\n          ")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link",
+    attrs: {
+      to: "/reportview"
+    }
+  }, [_c("i", {
+    staticClass: "nav-icon fas fa-file-alt"
+  }), _vm._v("\n            Report\n          ")])], 1)])])])], 1), _vm._v(" "), _c("div", {
     staticClass: "content-wrapper"
   }, [_c("router-view")], 1), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("aside", {
     staticClass: "control-sidebar control-sidebar-dark"
@@ -2210,8 +2219,8 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "animation__shake",
     attrs: {
-      src: "dist/img/AdminLTELogo.png",
-      alt: "AdminLTELogo",
+      src: "dist/img/StoreLogo.png",
+      alt: "StoreLogo",
       height: "60",
       width: "60"
     }
@@ -2257,7 +2266,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "img-circle elevation-2",
     attrs: {
-      src: "dist/img/user2-160x160.jpg",
+      src: "dist/img/avatar4.png",
       alt: "User Image"
     }
   })]), _vm._v(" "), _c("div", {
@@ -2267,7 +2276,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("Christian Colewan")])])]);
+  }, [_vm._v("Aling Gloria")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -2456,6 +2465,9 @@ var ListView = function ListView() {
 var PurchaseView = function PurchaseView() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_purchase_List_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/purchase/List.vue */ "./resources/js/components/purchase/List.vue"));
 };
+var ProductTableView = function ProductTableView() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_product_Table_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/product/Table.vue */ "./resources/js/components/product/Table.vue"));
+};
 var routes = [{
   name: 'home',
   path: '/',
@@ -2468,6 +2480,10 @@ var routes = [{
   name: 'purchaseview',
   path: '/purchaseview',
   component: PurchaseView
+}, {
+  name: 'producttableview',
+  path: '/producttableview',
+  component: ProductTableView
 }];
 
 /***/ }),
@@ -53116,7 +53132,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Welcome_vue":1,"resources_js_components_category_List_vue":1,"resources_js_components_purchase_List_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Welcome_vue":1,"resources_js_components_category_List_vue":1,"resources_js_components_purchase_List_vue":1,"resources_js_components_product_Table_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -53322,6 +53338,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/

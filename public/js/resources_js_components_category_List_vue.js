@@ -90,8 +90,22 @@ var render = function render() {
   }, [_vm._m(2), _vm._v(" "), _vm.categories.length > 0 ? _c("tbody", _vm._l(_vm.categories, function (category, key) {
     return _c("tr", {
       key: key
-    }, [_c("td", [_vm._v(_vm._s(category.id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.parent_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.status))]), _vm._v(" "), _c("td")]);
-  }), 0) : _c("tbody", [_vm._m(3)])])])])])])]);
+    }, [_c("td", [_vm._v(_vm._s(category.id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.parent_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.status))]), _vm._v(" "), _c("td", [_c("i", {
+      staticClass: "fas fa-edit text-primary",
+      on: {
+        click: function click($event) {
+          return _vm.editCategory(category);
+        }
+      }
+    }), _vm._v(" "), _c("i", {
+      staticClass: "fas fa-trash-alt text-danger",
+      on: {
+        click: function click($event) {
+          return _vm.deleteCategory(category.id);
+        }
+      }
+    })])]);
+  }), 0) : _c("tbody", [_vm._m(3)])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -147,20 +161,20 @@ var staticRenderFns = [function () {
     staticStyle: {
       width: "1%"
     }
-  }, [_vm._v("\n                      #\n                  ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("\n          #\n        ")]), _vm._v(" "), _c("th", {
     staticStyle: {
       width: "20%"
     }
-  }, [_vm._v("\n                      Parent\n                  ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("\n          Parent\n        ")]), _vm._v(" "), _c("th", {
     staticStyle: {
       width: "30%"
     }
-  }, [_vm._v("\n                      Title\n                  ")]), _vm._v(" "), _c("th", [_vm._v("\n                      Status\n                  ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("\n          Title\n        ")]), _vm._v(" "), _c("th", [_vm._v("\n          Status\n        ")]), _vm._v(" "), _c("th", {
     staticClass: "text-center",
     staticStyle: {
       width: "8%"
     }
-  }, [_vm._v("\n                      Action\n                  ")])])]);
+  }, [_vm._v("\n          Action\n        ")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -170,6 +184,71 @@ var staticRenderFns = [function () {
       align: "center"
     }
   }, [_vm._v("No Categories Found.")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "data-toggle": "modal",
+      "data-target": "#insertModal"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-plus"
+  }), _vm._v(" Insert Data\n")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "insertModal",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "insertModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "insertModalLabel"
+    }
+  }, [_vm._v("Insert Data")]), _vm._v(" "), _c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-secondary",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Save")])])])])]);
 }];
 render._withStripped = true;
 
