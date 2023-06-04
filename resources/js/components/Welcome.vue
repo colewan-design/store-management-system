@@ -24,7 +24,7 @@
                             <div class="inner">
                                 <h3>150</h3>
 
-                                <p>New Orders</p>
+                                <p>Sale</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -35,15 +35,14 @@
 
                     <div class="col-sm-3">
                         <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>150</h3>
-
-                                <p>New Orders</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <div class="inner">
+                            <h3>{{ totalPurchase }}</h3>
+                            <p>Total Purchase</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="/purchaseview" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
 
@@ -79,3 +78,34 @@
         </div>
     </div>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      purchases: [],
+    };
+  },
+  mounted() {
+    this.fetchPurchases();
+  },
+  methods: {
+    fetchPurchases() {
+      axios.get('/api/purchase')
+        .then(response => {
+          this.purchases = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
+  },
+  computed: {
+    totalPurchase() {
+      return this.purchases.reduce((sum, purchase) => sum + parseFloat(purchase.price), 0);
+    },
+  },
+};
+</script>

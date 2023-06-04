@@ -47,8 +47,12 @@
                 <input type="text" class="form-control" id="category" v-model="newProduct.category">
               </div>
               <div class="form-group">
-                <label for="price">Price:</label>
-                <input type="number" class="form-control" id="price" v-model="newProduct.price">
+                <label for="price">Sale Price:</label>
+                <input type="number" class="form-control" id="price" v-model="newProduct.sale_price">
+              </div>
+              <div class="form-group">
+                <label for="price">Purchase Price:</label>
+                <input type="number" class="form-control" id="price" v-model="newProduct.purchase_price">
               </div>
               <div class="form-group">
                 <label for="quantity">Quantity:</label>
@@ -79,7 +83,8 @@
                   <tr>
                     <th style="width: 1%">Name</th>
                     <th style="width: 20%">Category</th>
-                    <th style="width: 30%">Price</th>
+                    <th style="width: 30%">Sale Price</th>
+                    <th style="width: 30%">Purchase Price</th>
                     <th>Quantity</th>
                     <th style="width: 8%" class="text-center">Action</th>
                   </tr>
@@ -88,7 +93,8 @@
                   <tr v-for="product in products" :key="product.id">
                     <td>{{ product.name }}</td>
                     <td>{{ product.category }}</td>
-                    <td>{{ product.price }}</td>
+                    <td>{{ product.sale_price }}</td>
+                    <td>{{ product.purchase_price }}</td>
                     <td>{{ product.quantity }}</td>
                     <td>
                       <!-- Edit Button Icon -->
@@ -138,8 +144,12 @@
                 <input type="text" class="form-control" id="edit-category" v-model="editedProduct.category">
               </div>
               <div class="form-group">
-                <label for="edit-price">Price:</label>
-                <input type="number" class="form-control" id="edit-price" v-model="editedProduct.price">
+                <label for="edit-price"> Sale Price:</label>
+                <input type="number" class="form-control" id="edit-price" v-model="editedProduct.sale_price">
+              </div>
+              <div class="form-group">
+                <label for="edit-price">Purchase Price:</label>
+                <input type="number" class="form-control" id="edit-price" v-model="editedProduct.purchase_price">
               </div>
               <div class="form-group">
                 <label for="edit-quantity">Quantity:</label>
@@ -166,7 +176,8 @@
         newProduct: {
           name: '',
           category: '',
-          price: '',
+          purchase_price: '',
+          sale_price: '',
           quantity: '',
         },
         editedProduct: null,
@@ -194,7 +205,8 @@
             this.newProduct = {
               name: '',
               category: '',
-              price: '',
+              sale_price: '',
+              purchase_price: '',
               quantity: '',
             };
             $('#insertModal').modal('hide');

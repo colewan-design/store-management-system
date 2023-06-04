@@ -33,7 +33,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _this.axios.get('/api/category').then(function (response) {
+              return _this.axios.get("/api/category").then(function (response) {
                 _this.categories = response.data;
               })["catch"](function (error) {
                 console.log(error);
@@ -48,14 +48,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     deleteCategory: function deleteCategory(id) {
       var _this2 = this;
-      if (confirm("Are you sure to delete this category ?")) {
+      if (confirm("Are you sure to delete this category?")) {
         this.axios["delete"]("/api/category/".concat(id)).then(function (response) {
           _this2.getCategories();
         })["catch"](function (error) {
           console.log(error);
         });
       }
-    }
+    } // Other methods for additional functionality
   }
 });
 
@@ -77,17 +77,21 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "main-div"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "content-header"
+  }), _vm._v(" "), _c("div", {
     staticClass: "content"
   }, [_c("div", {
     staticClass: "container-fluid"
   }, [_c("div", {
     staticClass: "card"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "card-header"
+  }), _vm._v(" "), _c("div", {
     staticClass: "card-body p-0"
   }, [_c("table", {
     staticClass: "table table-striped projects"
-  }, [_vm._m(2), _vm._v(" "), _vm.categories.length > 0 ? _c("tbody", _vm._l(_vm.categories, function (category, key) {
+  }, [_vm._m(0), _vm._v(" "), _vm.categories.length > 0 ? _c("tbody", _vm._l(_vm.categories, function (category, key) {
     return _c("tr", {
       key: key
     }, [_c("td", [_vm._v(_vm._s(category.id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.parent_id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(category.status))]), _vm._v(" "), _c("td", [_c("i", {
@@ -105,76 +109,29 @@ var render = function render() {
         }
       }
     })])]);
-  }), 0) : _c("tbody", [_vm._m(3)])])]), _vm._v(" "), _vm._m(4), _vm._v(" "), _vm._m(5)])])])]);
+  }), 0) : _c("tbody", [_vm._m(1)])])]), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)])])])]);
 };
 var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "content-header"
-  }, [_c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
-    staticClass: "row mb-2"
-  }, [_c("div", {
-    staticClass: "col-sm-6"
-  }, [_c("h1", {
-    staticClass: "m-0"
-  }, [_vm._v("Category")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-sm-6"
-  }, [_c("ol", {
-    staticClass: "breadcrumb float-sm-right"
-  }, [_c("li", {
-    staticClass: "breadcrumb-item"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
-    staticClass: "breadcrumb-item active"
-  }, [_vm._v("Category")])])])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "card-header"
-  }, [_c("h3", {
-    staticClass: "card-title"
-  }, [_c("i", {
-    staticClass: "fas fa-list-alt"
-  }), _vm._v(" Categories")]), _vm._v(" "), _c("div", {
-    staticClass: "card-tools"
-  }, [_c("button", {
-    staticClass: "btn btn-tool",
-    attrs: {
-      type: "button",
-      "data-card-widget": "collapse",
-      title: "Collapse"
-    }
-  }, [_c("i", {
-    staticClass: "fas fa-minus"
-  })])])]);
-}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("thead", [_c("tr", [_c("th", {
     staticStyle: {
       width: "1%"
     }
-  }, [_vm._v("\n          #\n        ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("#")]), _vm._v(" "), _c("th", {
     staticStyle: {
       width: "20%"
     }
-  }, [_vm._v("\n          Parent\n        ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Parent")]), _vm._v(" "), _c("th", {
     staticStyle: {
       width: "30%"
     }
-  }, [_vm._v("\n          Title\n        ")]), _vm._v(" "), _c("th", [_vm._v("\n          Status\n        ")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Title")]), _vm._v(" "), _c("th", [_vm._v("Status")]), _vm._v(" "), _c("th", {
     staticClass: "text-center",
     staticStyle: {
       width: "8%"
     }
-  }, [_vm._v("\n          Action\n        ")])])]);
+  }, [_vm._v("Action")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -195,7 +152,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fas fa-plus"
-  }), _vm._v(" Insert Data\n")]);
+  }), _vm._v(" Insert Data\n        ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

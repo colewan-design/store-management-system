@@ -39,7 +39,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/avatar4.png" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Aling Gloria</a>
@@ -58,31 +58,38 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/productdetailsview" class="nav-link">
+          <router-link exact-active-class="active" to="/cashierview" class="nav-link">
+            <i class="nav-icon fas fa-cash-register"></i>
+            Cashier
+          </router-link>
+        </li>
+
+        <li class="nav-item">
+          <router-link exact-active-class="active" to="/productdetailsview" class="nav-link">
             <i class="nav-icon fas fa-info-circle"></i>
             Product Details
           </router-link>
         </li>   
         <li class="nav-item">
-          <router-link to="/producttableview" class="nav-link">
+          <router-link exact-active-class="active" to="/producttableview" class="nav-link">
             <i class="nav-icon fas fa-table"></i>
             Product Management
           </router-link>
         </li>  
         <li class="nav-item">
-          <router-link to="/purchaseview" class="nav-link">
+          <router-link exact-active-class="active" to="/purchaseview" class="nav-link">
             <i class="nav-icon fas fa-shopping-cart"></i>
             Purchase
           </router-link>
         </li>  
         <li class="nav-item">
-          <router-link to="/salesview" class="nav-link">
+          <router-link exact-active-class="active" to="/salesview" class="nav-link">
             <i class="nav-icon fas fa-chart-line"></i>
             Sales
           </router-link>
         </li> 
         <li class="nav-item">
-          <router-link to="/reportview" class="nav-link">
+          <router-link exact-active-class="active" to="/reportview" class="nav-link">
             <i class="nav-icon fas fa-file-alt"></i>
             Report
           </router-link>

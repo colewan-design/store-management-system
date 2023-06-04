@@ -2165,6 +2165,17 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
+      "exact-active-class": "active",
+      to: "/cashierview"
+    }
+  }, [_c("i", {
+    staticClass: "nav-icon fas fa-cash-register"
+  }), _vm._v("\n            Cashier\n          ")])], 1), _vm._v(" "), _c("li", {
+    staticClass: "nav-item"
+  }, [_c("router-link", {
+    staticClass: "nav-link",
+    attrs: {
+      "exact-active-class": "active",
       to: "/productdetailsview"
     }
   }, [_c("i", {
@@ -2174,6 +2185,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
+      "exact-active-class": "active",
       to: "/producttableview"
     }
   }, [_c("i", {
@@ -2183,6 +2195,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
+      "exact-active-class": "active",
       to: "/purchaseview"
     }
   }, [_c("i", {
@@ -2192,6 +2205,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
+      "exact-active-class": "active",
       to: "/salesview"
     }
   }, [_c("i", {
@@ -2201,6 +2215,7 @@ var render = function render() {
   }, [_c("router-link", {
     staticClass: "nav-link",
     attrs: {
+      "exact-active-class": "active",
       to: "/reportview"
     }
   }, [_c("i", {
@@ -2266,7 +2281,7 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "img-circle elevation-2",
     attrs: {
-      src: "dist/img/avatar4.png",
+      src: "dist/img/avatar3.png",
       alt: "User Image"
     }
   })]), _vm._v(" "), _c("div", {
@@ -2468,6 +2483,9 @@ var PurchaseView = function PurchaseView() {
 var ProductTableView = function ProductTableView() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_product_Table_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/product/Table.vue */ "./resources/js/components/product/Table.vue"));
 };
+var CashierView = function CashierView() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_cashier_interface_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/cashier/interface.vue */ "./resources/js/components/cashier/interface.vue"));
+};
 var routes = [{
   name: 'home',
   path: '/',
@@ -2484,6 +2502,10 @@ var routes = [{
   name: 'producttableview',
   path: '/producttableview',
   component: ProductTableView
+}, {
+  name: 'cashierview',
+  path: '/cashierview',
+  component: CashierView
 }];
 
 /***/ }),
@@ -53132,7 +53154,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_Welcome_vue":1,"resources_js_components_category_List_vue":1,"resources_js_components_purchase_List_vue":1,"resources_js_components_product_Table_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_Welcome_vue":1,"resources_js_components_category_List_vue":1,"resources_js_components_purchase_List_vue":1,"resources_js_components_product_Table_vue":1,"resources_js_components_cashier_interface_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

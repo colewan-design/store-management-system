@@ -28,7 +28,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         name: '',
         category: '',
         price: '',
-        quantity: ''
+        quantity: '',
+        created_at: ''
       },
       editedPurchase: null
     };
@@ -267,7 +268,7 @@ var render = function render() {
   }, [_vm._m(4), _vm._v(" "), _vm.purchases.length > 0 ? _c("tbody", _vm._l(_vm.purchases, function (purchase) {
     return _c("tr", {
       key: purchase.id
-    }, [_c("td", [_vm._v(_vm._s(purchase.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.category))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.quantity))]), _vm._v(" "), _c("td", [_c("i", {
+    }, [_c("td", [_vm._v(_vm._s(purchase.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.category))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.quantity))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(purchase.created_at))]), _vm._v(" "), _c("td", [_c("i", {
       staticClass: "fas fa-edit text-primary",
       attrs: {
         "data-target": "#editModal-" + purchase.id,
@@ -553,7 +554,7 @@ var staticRenderFns = [function () {
     staticStyle: {
       width: "30%"
     }
-  }, [_vm._v("Price")]), _vm._v(" "), _c("th", [_vm._v("Quantity")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Price")]), _vm._v(" "), _c("th", [_vm._v("Quantity")]), _vm._v(" "), _c("th", [_vm._v("CreatedAt")]), _vm._v(" "), _c("th", {
     staticClass: "text-center",
     staticStyle: {
       width: "8%"

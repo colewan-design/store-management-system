@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::all(['id','name', 'category', 'price','quantity']);
+        $products = Product::all(['id','name', 'category', 'sale_price', 'purchase_price','quantity']);
         return response()->json($products);
     }
 
@@ -43,14 +43,16 @@ class ProductController extends Controller
         
         $name = $data['name'];
         $category = $data['category'];
-        $price = $data['price'];
+        $sale_price = $data['sale_price'];
+        $purchase_price = $data['purchase_price'];
         $quantity = $data['quantity'];
     
         // Create a new Product instance
         $product = new Product();
         $product->name = $name;
         $product->category = $category;
-        $product->price = $price;
+        $product->sale_price = $sale_price;
+        $product->purchase_price = $purchase_price;
         $product->quantity = $quantity;
     
         // Save the product to the database
@@ -99,14 +101,16 @@ class ProductController extends Controller
          $validatedData = $request->validate([
              'name' => 'required',
              'category' => 'required',
-             'price' => 'required|numeric',
+             'sale_price' => 'required|numeric',
+             'purchase_price' => 'required|numeric',
              'quantity' => 'required|integer'
          ]);
      
          // Update the product with the validated data
          $product->name = $validatedData['name'];
          $product->category = $validatedData['category'];
-         $product->price = $validatedData['price'];
+         $product->sale_price = $validatedData['sale_price'];
+         $product->purchase_price = $validatedData['purchase_price'];
          $product->quantity = $validatedData['quantity'];
          $product->save();
      

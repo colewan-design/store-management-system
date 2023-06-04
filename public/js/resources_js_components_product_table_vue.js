@@ -27,7 +27,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       newProduct: {
         name: '',
         category: '',
-        price: '',
+        purchase_price: '',
+        sale_price: '',
         quantity: ''
       },
       editedProduct: null
@@ -54,7 +55,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         _this2.newProduct = {
           name: '',
           category: '',
-          price: '',
+          sale_price: '',
+          purchase_price: '',
           quantity: ''
         };
         $('#insertModal').modal('hide');
@@ -194,12 +196,12 @@ var render = function render() {
     attrs: {
       "for": "price"
     }
-  }, [_vm._v("Price:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Sale Price:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.newProduct.price,
-      expression: "newProduct.price"
+      value: _vm.newProduct.sale_price,
+      expression: "newProduct.sale_price"
     }],
     staticClass: "form-control",
     attrs: {
@@ -207,12 +209,39 @@ var render = function render() {
       id: "price"
     },
     domProps: {
-      value: _vm.newProduct.price
+      value: _vm.newProduct.sale_price
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.newProduct, "price", $event.target.value);
+        _vm.$set(_vm.newProduct, "sale_price", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": "price"
+    }
+  }, [_vm._v("Purchase Price:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newProduct.purchase_price,
+      expression: "newProduct.purchase_price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "price"
+    },
+    domProps: {
+      value: _vm.newProduct.purchase_price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.newProduct, "purchase_price", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -267,7 +296,7 @@ var render = function render() {
   }, [_vm._m(4), _vm._v(" "), _vm.products.length > 0 ? _c("tbody", _vm._l(_vm.products, function (product) {
     return _c("tr", {
       key: product.id
-    }, [_c("td", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.category))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.quantity))]), _vm._v(" "), _c("td", [_c("i", {
+    }, [_c("td", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.category))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.sale_price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.purchase_price))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(product.quantity))]), _vm._v(" "), _c("td", [_c("i", {
       staticClass: "fas fa-edit text-primary",
       attrs: {
         "data-target": "#editModal-" + product.id,
@@ -391,12 +420,12 @@ var render = function render() {
     attrs: {
       "for": "edit-price"
     }
-  }, [_vm._v("Price:")]), _vm._v(" "), _c("input", {
+  }, [_vm._v(" Sale Price:")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.editedProduct.price,
-      expression: "editedProduct.price"
+      value: _vm.editedProduct.sale_price,
+      expression: "editedProduct.sale_price"
     }],
     staticClass: "form-control",
     attrs: {
@@ -404,12 +433,39 @@ var render = function render() {
       id: "edit-price"
     },
     domProps: {
-      value: _vm.editedProduct.price
+      value: _vm.editedProduct.sale_price
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.editedProduct, "price", $event.target.value);
+        _vm.$set(_vm.editedProduct, "sale_price", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": "edit-price"
+    }
+  }, [_vm._v("Purchase Price:")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editedProduct.purchase_price,
+      expression: "editedProduct.purchase_price"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "number",
+      id: "edit-price"
+    },
+    domProps: {
+      value: _vm.editedProduct.purchase_price
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.editedProduct, "purchase_price", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -553,7 +609,11 @@ var staticRenderFns = [function () {
     staticStyle: {
       width: "30%"
     }
-  }, [_vm._v("Price")]), _vm._v(" "), _c("th", [_vm._v("Quantity")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Sale Price")]), _vm._v(" "), _c("th", {
+    staticStyle: {
+      width: "30%"
+    }
+  }, [_vm._v("Purchase Price")]), _vm._v(" "), _c("th", [_vm._v("Quantity")]), _vm._v(" "), _c("th", {
     staticClass: "text-center",
     staticStyle: {
       width: "8%"

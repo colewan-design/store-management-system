@@ -81,6 +81,7 @@
                     <th style="width: 20%">Category</th>
                     <th style="width: 30%">Price</th>
                     <th>Quantity</th>
+                    <th>CreatedAt</th>
                     <th style="width: 8%" class="text-center">Action</th>
                   </tr>
                 </thead>
@@ -90,6 +91,7 @@
                     <td>{{ purchase.category }}</td>
                     <td>{{ purchase.price }}</td>
                     <td>{{ purchase.quantity }}</td>
+                    <td>{{ purchase.created_at }}</td>
                     <td>
                       <!-- Edit Button Icon -->
                       <i class="fas fa-edit text-primary" :data-target="'#editModal-' + purchase.id" data-toggle="modal" @click="editPurchase(purchase)"></i>
@@ -168,6 +170,7 @@
           category: '',
           price: '',
           quantity: '',
+          created_at: '',
         },
         editedPurchase: null,
       };

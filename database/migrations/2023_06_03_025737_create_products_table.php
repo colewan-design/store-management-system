@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->increments('id'); // Primary key using auto-incrementing integer
             $table->string('name');
             $table->string('category');
-            $table->decimal('price', 8, 2); // Decimal column for price with 8 total digits and 2 decimal places
+            $table->decimal('sale_price', 8, 2); // Decimal column for price with 8 total digits and 2 decimal places
+            $table->decimal('purchase_price', 8, 2);
             $table->integer('quantity');
             $table->timestamps(); // Adds 'created_at' and 'updated_at' timestamp columns
             $table->softDeletes();

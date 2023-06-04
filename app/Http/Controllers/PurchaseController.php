@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Purchase;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -15,7 +16,7 @@ class PurchaseController extends Controller
     public function index()
     {
         //
-        $purchases = Purchase::all(['id','name', 'category', 'price','quantity']);
+        $purchases = Purchase::all(['id','name', 'category', 'price','quantity','created_at']);
         return response()->json($purchases);
     }
 
@@ -38,27 +39,47 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-    
+
         // You can access the individual fields like:
-        
         $name = $data['name'];
         $category = $data['category'];
         $price = $data['price'];
         $quantity = $data['quantity'];
-    
+
+        // Check if the product already exists in the products table
+        $product = Product::where('name', $name)->first();
+
+        if ($product) {
+            // If the product exists, update the quantity and purchase price
+            $product->quantity += $quantity;
+            $product->purchase_price = $price;
+            $product->sale_price = $price;
+            $product->save();
+        } else {
+            // If the product does not exist, create a new product
+            $product = new Product();
+            $product->name = $name;
+            $product->category = $category;
+            $product->quantity = $quantity;
+            $product->purchase_price = $price;
+            $product->sale_price = $price;
+            $product->save();
+        }
+
         // Create a new Purchase instance
         $purchase = new Purchase();
         $purchase->name = $name;
         $purchase->category = $category;
         $purchase->price = $price;
         $purchase->quantity = $quantity;
-    
+
         // Save the purchase to the database
         $purchase->save();
-    
+
         // Return a response indicating the success or failure of the operation
         return response()->json(['message' => 'Purchase created successfully'], 201);
     }
+
 
     /**
      * Display the specified resource.
